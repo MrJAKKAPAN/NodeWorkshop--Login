@@ -6,10 +6,10 @@ var logger = require('morgan');
 var mongo=require('mongodb');
 var mongoose=require('mongoose');
 var db=mongoose.connection; 
-
 var bcrypt = require('bcryptjs');
+
 var passport=require('passport');
-var LocalStrategy=request('passport-local')Strategy;
+var LocalStrategy=require('passport-local').Strategy;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

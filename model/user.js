@@ -1,6 +1,5 @@
 //model 
 /* ใช้ connect กับตัว mongodb */
-
 var mongoose=require('mongoose');
 var bcrypt = require('bcryptjs');
 var mongoDB='mongodb://localhost:27017/LoginDB';
@@ -31,6 +30,9 @@ module.exports.createUser=function(newUser,callback){
             newUser.save(callback);
         });
     });
+}
+
+
     module.exports.getUserById=function(id,callback){
         User.findById(Id,callback);
     }
@@ -38,6 +40,5 @@ module.exports.createUser=function(newUser,callback){
         var query={
             name:name
         };
-        User.findOne(query,callback);
+        User.findOne(query,callback); 
     }
-}
