@@ -19,21 +19,21 @@ router.get('/Login', function(req, res, next) {
 
 router.post('/register',[ 
        check('email', 'กรุณาป้อนอีเมล').isEmail(),
-       check('name', 'กรุณาป้อนชื่อของท่าน).not().isEmpty(),
+       check('name', 'กรุณาป้อนชื่อ').not().isEmpty(),
        check('password', 'กรุณาป้อนรหัสผ่าน').not().isEmpty()
 ], function(req, res, next) {
        const result=validationResult(req);
-       var error=result.errors;
+       var errors = result.errors;
 
        //Validation Data
-       if(!result.isEmpty()){
+       if (!result.isEmpty()) {
           //Return error to view
           res.render('register', {
             errors: errors
           })
        }else{
         //Insert Data
-        
+
        }     
       });
 

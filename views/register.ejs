@@ -11,11 +11,20 @@
     <title>Register</title>
 </head>
 <body>
-        <%- include layout %>
+        
         <div class="container" >
+         <%- include layout %>   
         <h2 align="center">register</h2>
-        <%= %>
-        <form  class="form-group" action="/users/register" method="POST">
+        <% if(locals.errors){  %>
+            <ul class="alert alert-danger">
+            <% Object.values(errors).forEach(function(error){%>
+                <li><%= error.msg %></li>
+            <%})%>
+            </ul> 
+        <%}%> 
+     
+
+            <form  class="form-group" action="/users/register" method="POST">
             <div class="form-group">
                 <label for="">Username</label>
                 <input type="text" name="name" value="" class="form-control">
