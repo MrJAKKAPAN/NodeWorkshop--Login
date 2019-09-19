@@ -44,9 +44,17 @@ passport.deserializeUser(function(id,done){
 passport.use(new LocalStrategy(function(username,password,done){
       User.getUserByName(username,function(err,user){
         if(err) throw error
-        console.log(user);
+        if(!user){
+            //ไม่พบผู้ใช้
+            return done(null,false)
+        }
+        else{
+          User.comparePassword(password,user.password,function(err,isMatch){
+            cllback(null,isMatch);
+          });
+          if(isMatch)
+        }
       });
-
 }));
 
 router.post('/register',[ 

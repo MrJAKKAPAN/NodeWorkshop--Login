@@ -33,12 +33,19 @@ module.exports.createUser=function(newUser,callback){
 }
 
 
-    module.exports.getUserById=function(id,callback){
+    module.exports.getUserById = function(id,callback){
         User.findById(Id,callback);
     }
-    module.exports.getUserByName=function(name,callback){
+
+    module.exports.getUserByName = function(name,callback){
         var query={
             name:name
         };
         User.findOne(query,callback); 
     }
+    module.exports.comparePassword = function(name,callback){
+        bcrypt.compare(password,hash,function(err,isMetch){
+            callback(null,isMatch);
+        });
+    }
+    
