@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User=require('../model/user');
 
+
 const{check,validationResult}=require('express-validator');
 
 
@@ -34,7 +35,7 @@ router.post('/register',[
             errors: errors
           })
        }else{
-        //Insert Data
+        //Insert Data บันทึกข้อมูล
         var name=req.body.name;
         var password=req.body.password;
         var email=req.body.email;

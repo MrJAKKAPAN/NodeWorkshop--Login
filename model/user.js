@@ -2,6 +2,7 @@
 /* ใช้ connect กับตัว mongodb */
 
 var mongoose=require('mongoose');
+var bcrypt = require('bcryptjs');
 var mongoDB='mongodb://localhost:27017/LoginDB';
 
 mongoose.connect(mongoDB,{
@@ -23,5 +24,11 @@ var userSchema=mongoose.Schema({
 var User=module.exports=mongoose.model('User',userSchema);
 
 module.exports.createUser=function(newUser,callback){
-    newUser.save(callback);
+    //การเข้ารหัส
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(newUser.password, salt, function(err, hash) {
+            newUser.password=hash;
+            newUser.save(callback);
+        });
+    });
 }
