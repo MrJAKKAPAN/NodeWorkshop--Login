@@ -20,6 +20,13 @@ router.get('/Login', function(req, res, next) {
   res.render('Login');
 });
 
+
+router.post('/Login', function(req, res, next) {
+    
+});
+
+
+
 router.post('/register',[ 
        check('email', 'กรุณาป้อนอีเมล').isEmail(),
        check('name', 'กรุณาป้อนชื่อ').not().isEmpty(),
