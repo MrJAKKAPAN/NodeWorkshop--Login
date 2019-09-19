@@ -31,4 +31,13 @@ module.exports.createUser=function(newUser,callback){
             newUser.save(callback);
         });
     });
+    module.exports.getUserById=function(id,callback){
+        User.findById(Id,callback);
+    }
+    module.exports.getUserByName=function(name,callback){
+        var query={
+            name:name
+        };
+        User.findOne(query,callback);
+    }
 }
