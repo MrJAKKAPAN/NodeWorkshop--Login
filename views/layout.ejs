@@ -1,12 +1,22 @@
 <nav class="navbar navbar-expand-sm bg-danger navbar-light"> 
     <a href="/" class="navbar-brand">NodeLogin </a>
     <ul class="navbar-nav">
+        <% if(locals.user) {%>
         <li class="nav-item">
-            <a href="/users/register" class="nav-link">Register</a>
+            <a href="/users/register" class="nav-link">Member</a>
         </li>
         <li class="nav-item">
-            <a href="/users/Login" class="nav-link">LoGiN</a>
+            <a href="/users/Login" class="nav-link">Logout</a>
         </li>
+        <% } %>
+        
+        <% if(!locals.user) {%>
+            <li class="nav-item">
+                <a href="/users/register" class="nav-link">Register</a>
+            </li>
+            <li class="nav-item">
+                <a href="/users/Login" class="nav-link">LoGiN</a>
+            </li>
+            <% } %>
     </ul>
-
 </nav>

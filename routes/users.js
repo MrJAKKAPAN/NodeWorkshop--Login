@@ -47,14 +47,18 @@ passport.use(new LocalStrategy(function(username,password,done){
         if(!user){
             //ไม่พบผู้ใช้
             return done(null,false)
-        }
-        else{
-          User.comparePassword(password,user.password,function(err,isMatch){
-            cllback(null,isMatch);
-          });
-          if(isMatch)
-        }
+        }else{
+            return done(null, user)
+          }          
+          User.comparePassword(password, user.password, function(err,isMatch) {
+          if(err) throw err
+          if(isMatch){
+            return done(null,user)
+          }else{
+            return done(null,false)
+          }  
       });
+    }); 
 }));
 
 router.post('/register',[ 
