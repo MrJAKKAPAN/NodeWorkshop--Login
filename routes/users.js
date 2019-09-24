@@ -22,6 +22,12 @@ router.get('/register', function(req, res, next) {
 router.get('/Login', function(req, res, next) {
   res.render('Login');
 });
+router.get('/Logout', function(req, res) {
+  req.logout();
+  res.redirect('/users/Login');
+});
+
+
 
 
 
