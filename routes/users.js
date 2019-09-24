@@ -33,9 +33,10 @@ router.get('/Logout', function(req, res) {
 
 router.post('/Login',passport.authenticate('local',{
       failureRedirect:'/users/login',
-      failureFlash:false
+      failureFlash: true
 }),
 function(req, res) {
+      req.flash("success", "ลงชื่อเข้าใช้เรียบร้อย"); //กำหนดเอง
       res.redirect('/');
 });
 passport.serializeUser(function(user,done){

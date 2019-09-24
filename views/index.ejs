@@ -13,15 +13,17 @@
   <body>
     <%- include layout %>
     <div class="container" align="center">
-        
+      <%- messages() %>
             <!-- <h2>jakkapan sitthikan</h2>
             <h3><%= title %></h3> -->
-      
-    </div>
-    <!-- เอา user email ใน DB มาแสดงผล -->>
+      <!-- เอา user email ใน DB มาแสดงผล -->
     <% if(user) {%> 
-    <h3><%= user.name %></h3>
-    <h3><%= user.email %></h3>
+          <h3><%= user.name %></h3>
+          <h3><%= user.email %></h3>
     <% } %>
+    </div>
   </body>
+  <script type="text/javascript">
+    $('#messages').addClass("alert alert-success");
+</script>
 </html>
